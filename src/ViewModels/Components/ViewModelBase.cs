@@ -3,7 +3,6 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using Bili.Copilot.Models.App.Other;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -45,10 +44,14 @@ public abstract class ViewModelBase : ObservableObject
         {
             command.PropertyChanged += (s, e) =>
             {
-                if (e.PropertyName == nameof(AsyncRelayCommand.ExecutionTask) &&
-                    ((IAsyncRelayCommand)s).ExecutionTask is Task task &&
-                    task.Exception is AggregateException exception)
+                if (e.PropertyName == nameof(AsyncRelayCommand.ExecutionTask))
                 {
+                    var exception = ((IAsyncRelayCommand)s)?.ExecutionTask?.Exception;
+                    if (exception == null)
+                    {
+                        return;
+                    }
+
                     exception.Handle(ex =>
                     {
                         handler(ex);
