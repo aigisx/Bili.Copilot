@@ -24,12 +24,12 @@ public static class NumberToolkit
 
         if (count >= 100000000)
         {
-            var unit = ResourceToolkit.GetLocalizedString("Billion".GetLocalizedString());
+            var unit = "Billion".GetLocalizedString();
             return Math.Round(count / 100000000, 2) + unit;
         }
         else if (count >= 10000)
         {
-            var unit = ResourceToolkit.GetLocalizedString("TenThousands".GetLocalizedString());
+            var unit = "TenThousands".GetLocalizedString();
             return Math.Round(count / 10000, 2) + unit;
         }
 
