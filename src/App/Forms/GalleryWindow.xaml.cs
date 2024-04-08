@@ -26,7 +26,7 @@ public sealed partial class GalleryWindow : WindowBase
         MainFrame.Tag = this;
         Activated += OnActivated;
         Closed += OnClosed;
-        Title = ResourceToolkit.GetLocalizedString(StringNames.ImageGallery);
+        Title = "ImageGallery".GetLocalizedString();
         MinWidth = 500;
         MinHeight = 500;
         _ = MainFrame.Navigate(typeof(GalleryPage), args);

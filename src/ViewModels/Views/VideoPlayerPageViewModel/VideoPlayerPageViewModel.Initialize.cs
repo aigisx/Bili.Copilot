@@ -94,14 +94,14 @@ public sealed partial class VideoPlayerPageViewModel
         var hasRelatedVideos = View.RelatedVideos != null && View.RelatedVideos.Count() > 0;
         var hasPlaylist = VideoPlaylist.Count > 0;
 
-        Sections.Add(new PlayerSectionHeader(PlayerSectionType.VideoInformation, ResourceToolkit.GetLocalizedString(StringNames.Information)));
+        Sections.Add(new PlayerSectionHeader(PlayerSectionType.VideoInformation, "Information".GetLocalizedString()));
 
         if (hasVideoParts)
         {
             // 只有分P数大于1时才提供切换功能.
             if (View.SubVideos.Count() > 1 && View.InteractionVideo == null)
             {
-                Sections.Add(new PlayerSectionHeader(PlayerSectionType.VideoParts, ResourceToolkit.GetLocalizedString(StringNames.Parts)));
+                Sections.Add(new PlayerSectionHeader(PlayerSectionType.VideoParts, "Parts".GetLocalizedString()));
             }
 
             var subVideos = View.SubVideos.ToList();
@@ -120,7 +120,7 @@ public sealed partial class VideoPlayerPageViewModel
 
         if (hasPlaylist)
         {
-            Sections.Add(new PlayerSectionHeader(PlayerSectionType.Playlist, ResourceToolkit.GetLocalizedString(StringNames.Playlist)));
+            Sections.Add(new PlayerSectionHeader(PlayerSectionType.Playlist, "Playlist".GetLocalizedString()));
             foreach (var item in VideoPlaylist)
             {
                 item.IsSelected = item.Data.Equals(View.Information);
@@ -134,14 +134,14 @@ public sealed partial class VideoPlayerPageViewModel
             if (season != null)
             {
                 // 只有确定当前合集包含正在播放的视频时才显示合集标头
-                Sections.Add(new PlayerSectionHeader(PlayerSectionType.UgcSeason, ResourceToolkit.GetLocalizedString(StringNames.UgcEpisode)));
+                Sections.Add(new PlayerSectionHeader(PlayerSectionType.UgcSeason, "UgcEpisode".GetLocalizedString()));
                 SelectSeason(season);
             }
         }
 
         if (hasRelatedVideos)
         {
-            Sections.Add(new PlayerSectionHeader(PlayerSectionType.RelatedVideos, ResourceToolkit.GetLocalizedString(StringNames.RelatedVideos)));
+            Sections.Add(new PlayerSectionHeader(PlayerSectionType.RelatedVideos, "RelatedVideos".GetLocalizedString()));
             View.RelatedVideos.ToList().ForEach(p => RelatedVideos.Add(GetItemViewModel(p)));
         }
 
@@ -151,7 +151,7 @@ public sealed partial class VideoPlayerPageViewModel
         PlayerDetail.IsInPlaylist = _playNextVideoAction != null || _playPreviousVideoAction != null;
 
         // 评论区常显，但位于最后一个.
-        Sections.Add(new PlayerSectionHeader(PlayerSectionType.Comments, ResourceToolkit.GetLocalizedString(StringNames.Reply)));
+        Sections.Add(new PlayerSectionHeader(PlayerSectionType.Comments, "Reply".GetLocalizedString()));
 
         Comments.SetData(View.Information.Identifier.Id, CommentType.Video);
         CurrentSection = Sections.First();

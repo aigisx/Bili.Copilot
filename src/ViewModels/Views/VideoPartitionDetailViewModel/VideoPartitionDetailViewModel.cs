@@ -48,7 +48,7 @@ public sealed partial class VideoPartitionDetailViewModel : InformationFlowViewM
 
     /// <inheritdoc/>
     protected override string FormatException(string errorMsg)
-        => $"{ResourceToolkit.GetLocalizedString(StringNames.RequestSubPartitionFailed)}\n{errorMsg}";
+        => $"{"RequestSubPartitionFailed".GetLocalizedString()}\n{errorMsg}";
 
     /// <inheritdoc/>
     protected override async Task GetDataAsync()

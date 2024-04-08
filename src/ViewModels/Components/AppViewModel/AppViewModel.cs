@@ -298,18 +298,18 @@ public sealed partial class AppViewModel : ViewModelBase
             NavigateRequest?.Invoke(this, new AppNavigationEventArgs(CurrentPage, default));
         }
 
-        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Popular, ResourceToolkit.GetLocalizedString(StringNames.PopularSlim))));
-        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Dynamic, ResourceToolkit.GetLocalizedString(StringNames.DynamicFeed))));
-        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Partition, ResourceToolkit.GetLocalizedString(StringNames.Partition))));
-        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Live, ResourceToolkit.GetLocalizedString(StringNames.Live))));
-        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Anime, ResourceToolkit.GetLocalizedString(StringNames.Anime))));
-        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Film, ResourceToolkit.GetLocalizedString(StringNames.Film))));
-        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Article, ResourceToolkit.GetLocalizedString(StringNames.SpecialColumn))));
+        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Popular, "PopularSlim".GetLocalizedString())));
+        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Dynamic, "DynamicFeed".GetLocalizedString())));
+        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Partition, "Partition".GetLocalizedString())));
+        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Live, "Live".GetLocalizedString())));
+        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Anime, "Anime".GetLocalizedString())));
+        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Film, "Film".GetLocalizedString())));
+        NavigateItems.Add(new NavigateItemViewModel(new NavigateItem(PageType.Article, "SpecialColumn".GetLocalizedString())));
 
-        SettingsItem = new NavigateItemViewModel(new NavigateItem(PageType.Settings, ResourceToolkit.GetLocalizedString(StringNames.Settings)));
+        SettingsItem = new NavigateItemViewModel(new NavigateItem(PageType.Settings, "Settings".GetLocalizedString()));
         SettingsItem.IsSelected = CurrentPage == PageType.Settings;
 
-        MessageItem = new NavigateItemViewModel(new NavigateItem(PageType.Message, ResourceToolkit.GetLocalizedString(StringNames.Message)));
+        MessageItem = new NavigateItemViewModel(new NavigateItem(PageType.Message, "Message".GetLocalizedString()));
         MessageItem.IsSelected = CurrentPage == PageType.Message;
 
         WebDavItem = new NavigateItemViewModel(new NavigateItem(PageType.WebDav, "WebDAV"));

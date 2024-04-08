@@ -39,7 +39,7 @@ public sealed partial class WebDavPlayerPageViewModel
     {
         IsError = true;
         var msg = GetErrorMessage(exception);
-        ErrorText = $"{ResourceToolkit.GetLocalizedString(StringNames.RequestVideoFailed)}\n{msg}";
+        ErrorText = $"{"RequestVideoFailed".GetLocalizedString()}\n{msg}";
         LogException(exception);
     }
 
@@ -97,7 +97,7 @@ public sealed partial class WebDavPlayerPageViewModel
         }
 
         PlayerDetail.NextVideoTipText = nextPart.Data.DisplayName;
-        PlayerDetail.NextPartText = string.Format(ResourceToolkit.GetLocalizedString(StringNames.NextPartTipTemplate), nextPart.Data.DisplayName);
+        PlayerDetail.NextPartText = string.Format("NextPartTipTemplate".GetLocalizedString(), nextPart.Data.DisplayName);
         _playNextVideoAction = () =>
         {
             ChangeVideo(nextPart);
@@ -128,7 +128,7 @@ public sealed partial class WebDavPlayerPageViewModel
             return;
         }
 
-        PlayerDetail.PreviousPartText = string.Format(ResourceToolkit.GetLocalizedString(StringNames.PreviousPartTipTemplate), previousPart.Data.DisplayName);
+        PlayerDetail.PreviousPartText = string.Format("PreviousPartTipTemplate".GetLocalizedString(), previousPart.Data.DisplayName);
         _playPreviousVideoAction = () =>
         {
             ChangeVideo(previousPart);

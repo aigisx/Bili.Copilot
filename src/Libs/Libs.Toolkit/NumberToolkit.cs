@@ -2,7 +2,6 @@
 
 using System;
 using System.Linq;
-using Bili.Copilot.Models.Constants.App;
 
 namespace Bili.Copilot.Libs.Toolkit;
 
@@ -25,12 +24,12 @@ public static class NumberToolkit
 
         if (count >= 100000000)
         {
-            var unit = ResourceToolkit.GetLocalizedString(StringNames.Billion);
+            var unit = ResourceToolkit.GetLocalizedString("Billion".GetLocalizedString());
             return Math.Round(count / 100000000, 2) + unit;
         }
         else if (count >= 10000)
         {
-            var unit = ResourceToolkit.GetLocalizedString(StringNames.TenThousands);
+            var unit = ResourceToolkit.GetLocalizedString("TenThousands".GetLocalizedString());
             return Math.Round(count / 10000, 2) + unit;
         }
 
@@ -73,10 +72,10 @@ public static class NumberToolkit
     public static string GetDurationText(TimeSpan timeSpan)
     {
         return timeSpan.TotalHours > 1
-            ? Math.Round(timeSpan.TotalHours, 2) + " " + ResourceToolkit.GetLocalizedString(StringNames.Hours)
+            ? Math.Round(timeSpan.TotalHours, 2) + " " + "Hours".GetLocalizedString()
             : timeSpan.TotalMinutes > 1
-                ? Math.Round(timeSpan.TotalMinutes) + " " + ResourceToolkit.GetLocalizedString(StringNames.Minutes)
-                : Math.Round(timeSpan.TotalSeconds) + " " + ResourceToolkit.GetLocalizedString(StringNames.Seconds);
+                ? Math.Round(timeSpan.TotalMinutes) + " " + "Minutes".GetLocalizedString()
+                : Math.Round(timeSpan.TotalSeconds) + " " + "Seconds".GetLocalizedString();
     }
 
     /// <summary>

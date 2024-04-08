@@ -2,14 +2,14 @@
 
 using Bili.Copilot.Libs.Toolkit;
 using Bili.Copilot.Models.Constants.App;
-using Bili.Copilot.ViewModels;
+using VM=Bili.Copilot.ViewModels;
 
 namespace Bili.Copilot.App.Controls.Base;
 
 /// <summary>
 /// 直播间视频卡片.
 /// </summary>
-public sealed class LiveItem : ReactiveControl<LiveItemViewModel>, IRepeaterItem
+public sealed class LiveItem : ReactiveControl<VM.LiveItemViewModel>, IRepeaterItem
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="LiveItem"/> class.
@@ -25,7 +25,7 @@ public sealed class LiveItem : ReactiveControl<LiveItemViewModel>, IRepeaterItem
     {
         var rootCard = (FrameworkElement)GetTemplateChild("RootCard");
         var debugItem = new MenuFlyoutItem();
-        debugItem.Text = ResourceToolkit.GetLocalizedString(StringNames.DebugInformation);
+        debugItem.Text = "DebugInformation".GetLocalizedString();
         debugItem.Icon = new FluentIcon() { Symbol = FluentSymbol.Bug };
         debugItem.Click += OnDebugItemClickAsync;
         if (rootCard != null && rootCard.ContextFlyout is MenuFlyout flyout && flyout.Items != null)

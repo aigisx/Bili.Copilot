@@ -63,7 +63,7 @@ public sealed partial class VideoPlayerPageViewModel
         }
         else
         {
-            AppViewModel.Instance.ShowTip(ResourceToolkit.GetLocalizedString(StringNames.FavoriteFailed), InfoType.Error);
+            AppViewModel.Instance.ShowTip("FavoriteFailed".GetLocalizedString(), InfoType.Error);
         }
     }
 
@@ -83,7 +83,7 @@ public sealed partial class VideoPlayerPageViewModel
         }
         else
         {
-            AppViewModel.Instance.ShowTip(ResourceToolkit.GetLocalizedString(StringNames.CoinFailed), InfoType.Error);
+            AppViewModel.Instance.ShowTip("CoinFailed".GetLocalizedString(), InfoType.Error);
         }
     }
 
@@ -99,7 +99,7 @@ public sealed partial class VideoPlayerPageViewModel
         }
         else
         {
-            AppViewModel.Instance.ShowTip(ResourceToolkit.GetLocalizedString(StringNames.SetFailed), InfoType.Error);
+            AppViewModel.Instance.ShowTip("SetFailed".GetLocalizedString(), InfoType.Error);
         }
     }
 

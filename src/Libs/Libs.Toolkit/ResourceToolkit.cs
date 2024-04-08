@@ -15,6 +15,14 @@ public static class ResourceToolkit
     /// </summary>
     /// <param name="stringName">Resource name corresponding to localized text.</param>
     /// <returns>Localized text.</returns>
-    public static string GetLocalizedString(StringNames stringName)
+    public static string GetLocalizedString(this string stringName)
+        => ResourceManager.Current.MainResourceMap[$"Resources/{stringName}"].Candidates[0].ValueAsString;
+
+    /// <summary>
+    /// Get localized text.
+    /// </summary>
+    /// <param name="stringName">Resource name corresponding to localized text.</param>
+    /// <returns>Localized text.</returns>
+    public static string GetLocalizedString(this StringNames stringName)
         => ResourceManager.Current.MainResourceMap[$"Resources/{stringName}"].Candidates[0].ValueAsString;
 }

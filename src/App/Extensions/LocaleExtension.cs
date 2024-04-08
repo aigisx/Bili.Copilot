@@ -19,5 +19,5 @@ public sealed class LocaleExtension : MarkupExtension
 
     /// <inheritdoc/>
     protected override object ProvideValue()
-        => ResourceToolkit.GetLocalizedString(Name);
+        => ResourceToolkit.GetLocalizedString(Name.ToString());
 }
